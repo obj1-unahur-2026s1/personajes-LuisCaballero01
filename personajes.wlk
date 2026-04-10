@@ -2,28 +2,28 @@ import armas.*
 import elementos.*
 
 object floki {
-    var armaActual = ballesta
+    const armaActual = ballesta
 
-    method Encontrar(unElemento){
-        if (armaActual.EstaCargada()){
-            unElemento.RecibirAtaque(armaActual)
-            armaActual.RegistrarUso()
+    method encontrar(unElemento){
+        if (armaActual.estaCargada()){
+            unElemento.recibirAtaque(armaActual)
+            armaActual.registrarUso()
         }
     }
 }
 object mario {
     var valorRecolectado = 0
     var ultimoElemento = tipa
-    method Encontrar(unElemento){
-        valorRecolectado = valorRecolectado + unElemento.RecibirTrabajo()
+    method encontrar(unElemento){
+        valorRecolectado = valorRecolectado + unElemento.recibirTrabajo()
         ultimoElemento = unElemento
     }
     
-    method EsFeliz() = (valorRecolectado == 50) || (ultimoElemento.altura() > 10)
+    method esFeliz() = (valorRecolectado == 50) || (ultimoElemento.altura() > 10)
 }
 
 object fantasmon {
-    method Encontrar(unElemento){
+    method encontrar(unElemento){
 
     }
 }

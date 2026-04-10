@@ -1,29 +1,31 @@
 import armas.*
 
 object castillo {
-    var altura = 20
     var defensa = 150
 
-    method RecibirAtaque(unArma){
-        defensa = 0.max(defensa - unArma.Potencia())
+    method recibirAtaque(unArma){
+        defensa = 0.max(defensa - unArma.potencia())
     }
 
-    method RecibirTrabajo(){
+    method recibirTrabajo(){
         defensa = 200.min(defensa + 20)
         return defensa / 5
     }
+
+    method altura() = 20
 }
 object aurora {
-    var altura = 1
     var estaViva = true
 
-    method RecibirAtaque(unArma){
-        if(unArma.Potencia() > 10){
+    method recibirAtaque(unArma){
+        if(unArma.potencia() > 10){
             estaViva = false
         }
     }
 
-    method RecibirTrabajo() = 15
+    method recibirTrabajo() = 15
+
+    method altura() = 1
 }
 object tipa {
     var altura = 8
@@ -32,9 +34,9 @@ object tipa {
         altura = altura + 1
     }
 
-    method RecibirAtaque(unArma){}
+    method recibirAtaque(unArma){}
 
-    method RecibirTrabajo(){
+    method recibirTrabajo(){
         altura = altura + 1
         return altura * 2
     }
