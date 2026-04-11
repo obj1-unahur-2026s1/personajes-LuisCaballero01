@@ -2,13 +2,17 @@ import armas.*
 import elementos.*
 
 object floki {
-    const armaActual = ballesta
+    var armaActual = ballesta
 
     method encontrar(unElemento){
         if (armaActual.estaCargada()){
             unElemento.recibirAtaque(armaActual)
             armaActual.registrarUso()
         }
+    }
+
+    method cambiarArma(unArma){
+        armaActual = unArma
     }
 }
 object mario {
