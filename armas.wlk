@@ -1,22 +1,26 @@
 object jabalina {
     var estaCargada = true
+
+    method potencia() = 30
     method estaCargada() = estaCargada
 
-    method registrarUso(){
+    method usar(){
         if(estaCargada){
             estaCargada = false
         }
     }
 
-    method potencia() = 30
 }
+
 object ballesta {
     var flechas = 10
+    method Potencia() = 4
     method estaCargada() = flechas > 0
 
-    method registrarUso(){
-        flechas = flechas - 1
+    method usar(){
+        if (self.estaCargada()){
+            flechas = flechas - 1
+        }
     }
 
-    method Potencia() = 4
 }

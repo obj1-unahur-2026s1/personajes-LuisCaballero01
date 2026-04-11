@@ -1,13 +1,12 @@
 import armas.*
-import elementos.*
 
 object floki {
     var armaActual = ballesta
 
     method encontrar(unElemento){
         if (armaActual.estaCargada()){
-            unElemento.recibirAtaque(armaActual)
-            armaActual.registrarUso()
+            unElemento.recibirAtaque(armaActual.potencia())
+            armaActual.usar()
         }
     }
 
@@ -15,15 +14,19 @@ object floki {
         armaActual = unArma
     }
 }
+
 object mario {
     var valorRecolectado = 0
-    var ultimoElemento = tipa
+    var ultimaAlturaEncontrada = 0
+
+    method esFeliz() = (valorRecolectado >= 50) || (ultimaAlturaEncontrada >= 10)
+
     method encontrar(unElemento){
-        valorRecolectado = valorRecolectado + unElemento.recibirTrabajo()
-        ultimoElemento = unElemento
+        unElemento.recibirTrabajo()
+        valorRecolectado = valorRecolectado + unElemento.valorOtorgado()
+        ultimaAlturaEncontrada = unElemento.altura()
     }
     
-    method esFeliz() = (valorRecolectado == 50) || (ultimoElemento.altura() > 10)
 }
 
 object fantasmon {
